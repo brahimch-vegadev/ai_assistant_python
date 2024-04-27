@@ -20,6 +20,14 @@ lcd = LCD.Adafruit_CharLCD(
 
 # Initialize text-to-speech engine
 engine = pyttsx3.init()
+voices = engine.getProperty('voices')
+female_voice_id = None
+for voice in voices:
+    if "female" in voice.name.lower():
+        female_voice_id = voice.id
+        break
+if female_voice_id:
+    engine.setProperty('voice', female_voice_id)
 
 # Load data from JSON file
 def load_data():
