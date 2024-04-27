@@ -1,0 +1,72 @@
+{
+    "model": {
+        "rnn_dims": 512,
+        "rnn_n_layers": 3,
+        "rnn_residual": true,
+        "rnn_type": "gru",
+        "hidden_size": 1024,
+        "kernel_size": 5,
+        "stride": 1,
+        "encoder_type": "deepvoice",
+        "attention_type": "lsa",
+        "attention_norm": "sigmoid",
+        "windowing": false,
+        "use_forward_attn": false
+    },
+    "data": {
+        "phoneme_cache_path": null,
+        "phoneme_language": "en",
+        "phoneme_language_code": "en-us",
+        "use_phonemes": false,
+        "append_phoneme_duration": false,
+        "phoneme_language_letter": "E",
+        "speakers_file": null
+    },
+    "tts": {
+        "sampling_rate": 22050,
+        "num_mels": 80,
+        "num_freq": 1025,
+        "frame_length_ms": 50,
+        "frame_shift_ms": 12.5,
+        "preemphasis": 0.98,
+        "min_level_db": -100,
+        "ref_level_db": 20,
+        "griffin_lim_iters": 64,
+        "power": 1.5,
+        "signal_norm": true,
+        "symmetric_mels": true,
+        "mel_fmin": 50,
+        "mel_fmax": 8000,
+        "max_norm": 4.0,
+        "clip_norm": true,
+        "spec_gain": 1.0,
+        "stft_pad_mode": "reflect",
+        "amp_scale": 1.0,
+        "centered": true,
+        "train_seq2seq": false,
+        "use_lws": false
+    },
+    "train": {
+        "batch_size": 32,
+        "lr": 0.0001,
+        "warmup_steps": 4000,
+        "anneal_steps": 500000,
+        "anneal_factor": 0.1,
+        "weight_decay": 1e-6,
+        "grad_clip_thresh": 1.0,
+        "optimizer": "adam",
+        "log_interval": 100,
+        "checkpoint_interval": 1000,
+        "fp16_run": false,
+        "distributed_run": false
+    },
+    "path": {
+        "wavs": null,
+        "tfrecords_dir": null,
+        "meta_file_train": null,
+        "meta_file_val": null,
+        "outdir": "tts_output",
+        "checkpoint_path": null,
+        "text_cleaner": "phoneme_cleaners"
+    }
+}
