@@ -21,14 +21,17 @@ lcd = LCD.Adafruit_CharLCD(
 # Initialize text-to-speech engine
 engine = pyttsx3.init()
 voices = engine.getProperty('voices')
-female_voice_id = None
+arabic_female_voice_id = None
 for voice in voices:
-    if "female" in voice.name.lower():
-        female_voice_id = voice.id
+    if "female" in voice.name.lower() and "arabic" in voice.languages:
+        arabic_female_voice_id = voice.id
         break
-if female_voice_id:
-    engine.setProperty('voice', female_voice_id)
-
+if arabic_female_voice_id:
+    engine.setProperty('voice', arabic_female_voice_id)
+    engine.setProperty('rate', 150)  # Adjust the rate as needed
+    engine.setProperty('textnorm', 'arabic')  # Set text normalization for Arabic
+else:
+    print("No suitable Arabic female voice found.")
 # Load data from JSON file
 def load_data():
     with open("data.json") as json_file:
