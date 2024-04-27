@@ -1,0 +1,10 @@
+{
+    "hello": {
+        "response": "Hello! How can I assist you?",
+        "display_message": "Hello, I'm here to help."
+    },
+    "goodbye": {
+        "response": "Goodbye! Have a nice day.",
+        "display_message": "Goodbye!"
+    }
+}
